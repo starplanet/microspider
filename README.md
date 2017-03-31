@@ -141,6 +141,9 @@ microspider提供丰富的命令行工具，以满足不同需求：
 * parse
     将mongodb存储的解析失败的Response内容重新解析
 
+* retry
+    将mongodb存储的解析失败的seed重新发送到work消息队列重新运行，该选项不受cache影响
+
 * dump
     查看work和backlog消息队列中的seed
 
@@ -207,6 +210,17 @@ microspider提供丰富的命令行工具，以满足不同需求：
 |-m|--mongo|-|清除存储在mongo里解析失败的内容
 |-o|--work-queue|0|清除work消息队列|
 |-b|--backlog-queue|0|清除backlog消息队列|
+
+
+### retry
+
+`microspider retry [options] <spider>`
+
+将mongodb存储的解析失败的seed重新发送到work消息队列重新运行，该选项不受cache影响
+
+|短选项|长选项|默认值|说明|样例|
+|---|---|---|---|---|
+|-m|--mongo|-|失败的seed存储的数据库位置
 
 
 ### dump
